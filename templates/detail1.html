@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="bootstrap/vs.min.css">-->
+    <link rel="stylesheet" href="bootstrap/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/screen.min.css">
+
+    <link href="bootstrap/movie.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="bootstrap/ysemm.css">
+    <style>
+        #mar {
+            z-index: 1111;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin-bottom: 0;
+        }
+
+        .martop {
+            margin-top: 35px;
+        }
+
+        .docs-section {
+            overflow: hidden;
+        }
+
+        .docs-section img {
+            width: 100%;
+        }
+
+        body {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<!-- 导航条 -->
+<nav class="navbar navbar-default" id="mar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">首页</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">频道<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">专题</a></li>
+                <li><a href="#">活动</a></li>
+            </ul>
+            <form class="navbar-form navbar-left">
+                <div class="input-group">
+                    <input type="text" class="form-control " placeholder="Search">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default btn-sm" type="submit">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </span>
+                </div>
+
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="Login.html" target="_blank">登录</a></li>
+                <li><a href="Login.html" target="_blank">注册</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<!--main-->
+<div class="docs-header" id="content">
+    <div class="container">
+        <h1>Getting started</h1>
+        <p>An overview of Less, how to download and use, examples and more.</p>
+
+    </div>
+</div>
+
+<!--banner-->
+<div class="banner">
+    <div class="container">
+        Less 3.0 is coming! See the <a href="http://lesscss.org/3.x/">updated documentation</a>!
+    </div>
+</div>
+
+<!--content-->
+<div class="container docs-container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="sidebar hidden-print affix-top" role="complementary" style="">
+                <div id="navigation">
+
+                    <ul class="nav sidenav">
+                        <li class="active"><a href="#getting-started">三生三世十里桃花</a></li>
+                        <li class=""><a href="#movie">电影截图</a></li>
+                        <li class=""><a href="#using-less">剧情介绍</a></li>
+                        <li class=""><a href="#download-options">电影详情</a>
+                            <ul class="nav">
+                                <li class=""><a href="#download-options-browser-downloads">gggg</a></li>
+                                <li class=""><a href="#a">上映日期</a></li>
+                                <li class=""><a href="#b">导演</a></li>
+                                <li class=""><a href="#c">演员</a></li>
+                                <li class=""><a href="#d">类型</a></li>
+                                <li class=""><a href="#e">片长</a></li>
+                                <li class=""><a href="#f">语言</a></li>
+                            </ul>
+                        </li>
+                        <li class=""><a href="#license-faqs">EEEE</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9" role="main">
+
+            <div class="panel docs-content">
+                <div class="docs-section">
+                    <div class="page-header">
+                        <h1 class="docs-heading">三生三世十里桃花<span class="anchor-target" id="getting-started"></span>
+                            <a href="#getting-started"
+                               class="anchor glyphicon glyphicon-link"></a></h1>
+                    </div>
+
+                    <div class="page-header">
+                        <h1 class="docs-heading">电影截图<span class="anchor-target" id="movie"></span>
+                            <a href="#movie"
+                               class="anchor glyphicon glyphicon-link"></a></h1>
+                    </div>
+                    <div class="header_context">
+                        <p>Less is a CSS pre-processor, meaning that it extends the CSS language, adding features that
+                            allow
+                            variables, mixins, functions and many other techniques that allow you to make CSS that is
+                            more
+                            maintainable, themeable and extendable.</p>
+                        <img src="image/Movie/Movie1.jpg" alt="movie1">
+                        <p>Less runs inside Node, in the browser and inside Rhino. There are also many 3rd party tools
+                            that
+                            allow you to compile your files and watch for changes. The quickest place for first
+                            experiments
+                            with Less is our online editor</p>
+                        <img src="image/Movie/Movie2.jpg" alt="movie1">
+                        <p>Less is a CSS pre-processor, meaning that it extends the CSS language, adding features that
+                            allow
+                            variables, mixins, functions and many other techniques that allow you to make CSS that is
+                            more
+                            maintainable, themeable and extendable.</p>
+                        <img src="image/Movie/Movie3.jpg" alt="movie1">
+                        <p>Less runs inside Node, in the browser and inside Rhino. There are also many 3rd party tools
+                            that
+                            allow you to compile your files and watch for changes. The quickest place for first
+                            experiments
+                            with Less is our online editor</p>
+                        <img src="image/Movie/Movie4.jpg" alt="movie1">
+                        <p>Less is a CSS pre-processor, meaning that it extends the CSS language, adding features that
+                            allow
+                            variables, mixins, functions and many other techniques that allow you to make CSS that is
+                            more
+                            maintainable, themeable and extendable.</p>
+                        <img src="image/Movie/Movie5.jpg" alt="movie1">
+                        <p>Less runs inside Node, in the browser and inside Rhino. There are also many 3rd party tools
+                            that
+                            allow you to compile your files and watch for changes. The quickest place for first
+                            experiments
+                            with Less is our online editor</p>
+                        <img src="image/Movie/Movie6.jpg" alt="movie1">
+                    </div>
+                </div>
+
+
+                <div class="docs-section">
+                    <div class="page-header">
+                        <h1 class="docs-heading">剧情介绍<span class="anchor-target" id="using-less"></span>
+                            <a href="#using-less"
+                               class="anchor glyphicon glyphicon-link"></a></h1>
+                    </div>
+                    <div class="header_context">
+                        <p>Less is a CSS pre-processor, meaning that it extends the CSS language, adding features that
+                            allow
+                            variables, mixins, functions and many other techniques that allow you to make CSS that is
+                            more
+                            maintainable, themeable and extendable.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="docs-section">
+                    <div class="page-header">
+                        <h1 class="docs-heading">电影详情<span class="anchor-target" id="download-options"></span>
+                            <a href="#download-options"
+                               class="anchor glyphicon glyphicon-link"></a></h1>
+                    </div>
+
+                    <h2 class="docs-heading">Browser downloads<span class="anchor-target"
+                                                                    id="download-options-browser-downloads"></span>
+                        <a href="#download-options-browser-downloads"
+                            class="anchor glyphicon glyphicon-link"></a></h2>
+
+                    <div class="page-header">
+                        <h3 class="docs-heading">上映日期<span class="anchor-target" id="a"></span>
+                            <a href="#a"
+                               class="anchor glyphicon glyphicon-link"></a></h3>
+                    </div>
+                    <div class="header_context">
+                        <p>Less is a CSS pre-processor, meaning that it extends the CSS language, adding features that allow
+                            variables, mixins, functions and many other techniques that allow you to make CSS that is more
+                            maintainable, themeable and extendable.</p>
+                    </div>
+
+
+                    <div class="page-header">
+                        <h3 class="docs-heading">导演<span class="anchor-target" id="b"></span>
+                            <a href="#b"
+                               class="anchor glyphicon glyphicon-link"></a></h3>
+                    </div>
+                    <div class="header_context">
+                        <p>Less is a CSS pre-processor, meaning that it extends the CSS language, adding features that allow
+                            variables, mixins, functions and many other techniques that allow you to make CSS that is more
+                            maintainable, themeable and extendable.</p>
+                    </div>
+
+
+                    <div class="page-header">
+                        <h3 class="docs-heading">演员<span class="anchor-target" id="c"></span>
+                            <a href="#c"
+                               class="anchor glyphicon glyphicon-link"></a></h3>
+                    </div>
+                    <div class="header_context">
+                        <p>Less is a CSS pre-processor, meaning that it extends the CSS language, adding features that allow
+                            variables, mixins, functions and many other techniques that allow you to make CSS that is more
+                            maintainable, themeable and extendable.</p>
+                    </div>
+
+
+                    <div class="page-header">
+                        <h3 class="docs-heading">类型<span class="anchor-target" id="d"></span>
+                            <a href="#d"
+                               class="anchor glyphicon glyphicon-link"></a></h3>
+                    </div>
+                    <div class="header_context">
+                        <p>Less is a CSS pre-processor, meaning that it extends the CSS language, adding features that allow
+                            variables, mixins, functions and many other techniques that allow you to make CSS that is more
+                            maintainable, themeable and extendable.</p>
+                    </div>
+
+
+                    <div class="page-header">
+                        <h3 class="docs-heading">片长<span class="anchor-target" id="e"></span>
+                            <a href="#e"
+                               class="anchor glyphicon glyphicon-link"></a></h3>
+                    </div>
+                    <div class="header_context">
+                        <p>Less is a CSS pre-processor, meaning that it extends the CSS language, adding features that allow
+                            variables, mixins, functions and many other techniques that allow you to make CSS that is more
+                            maintainable, themeable and extendable.</p>
+                    </div>
+
+
+                    <div class="page-header">
+                        <h3 class="docs-heading">语言<span class="anchor-target" id="f"></span>
+                            <a href="#f"
+                               class="anchor glyphicon glyphicon-link"></a></h3>
+                    </div>
+                    <div class="header_context">
+                        <p>Less is a CSS pre-processor, meaning that it extends the CSS language, adding features that allow
+                            variables, mixins, functions and many other techniques that allow you to make CSS that is more
+                            maintainable, themeable and extendable.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="docs-section">
+                    <div class="page-header">
+                        <h1 class="docs-heading">License FAQs<span class="anchor-target" id="license-faqs"></span>
+                            <a href="http://lesscss.org/#license-faqs" name="license-faqs"
+                               class="anchor glyphicon glyphicon-link"></a></h1>
+                    </div>
+                    <p class="lead">Less is released under the Apache 2 License (<a
+                            href="https://github.com/less/less.js/issues/1029">though there are plans to dual license
+                        it</a>). Copyright 2009-2017, Alexis Sellier and the Less Core Team (see about). Boiled down to
+                        smaller chunks, it can be described with the following conditions.</p>
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <h4>It allows you to:</h4>
+                            <ul>
+                                <li>Freely download and use Less, in whole or in part, for personal, company internal or
+                                    commercial purposes
+                                </li>
+                                <li>Use Less in packages or distributions that you create</li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <h4>It forbids you to:</h4>
+                            <ul>
+                                <li>Redistribute any piece of Less without proper attribution</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <h4>It requires you to:</h4>
+                            <ul>
+                                <li>Include a copy of the license in any redistribution you may make that includes
+                                    Less
+                                </li>
+                                <li>Provide clear attribution to The Less Core Team for any distributions that include
+                                    Less
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <h4>It does not require you to:</h4>
+                            <ul>
+                                <li>Include the source of Less itself, or of any modifications you may have made to it,
+                                    in any redistribution you may assemble that includes it
+                                </li>
+                                <li>Submit changes that you make back to the Less project (though such feedback is
+                                    encouraged)
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p>The full Less license is located <a href="https://github.com/less/less.js/blob/master/LICENSE">in
+                        the project repository</a> for more information.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--footer-->
+<div class="footer">
+<p>Copyright © 2015 - 2017 Ysemm. All Rights Reserved</p>
+<p>
+<a href="#" rel="nofollow">备案号：粤ICP备15071992号-1</a>
+</p>
+</div>
+<script src="bootstrap/js/jquery-1.10.2.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<!--<script src="bootstrap/js/holder.min.js"></script>-->
+<script src="bootstrap/js/application.js"></script>
+</body>
+</html>

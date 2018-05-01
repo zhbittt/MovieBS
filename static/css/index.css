@@ -1,0 +1,29 @@
+.mtop {
+    margin-top: 100px;
+}
+
+body a:hover{
+    text-decoration: none;
+}
+.hides{
+    display: none;
+}
+.media img{
+    width: 60px;
+    height:60px;
+    border: solid 2px #3c3c3c;
+    border-radius: 5px;
+}
+
+.media{
+    font-size: 10px;
+    border-bottom: solid 1px #5bc0de;
+}
+.media-body{
+    font-size: 10px;
+}
+.media_bottom{
+    margin-top: 10px;
+    font-size: 10px;
+    text-decoration: none;
+}
