@@ -20,15 +20,16 @@
         <input type="submit" class="btn btn-success" value="提交">
     </div>
 </form>
+
+
 <script>
     function popupCallback(dic) {
-        if (dic.status){
-            var op = document.createElement('option');
-            op.value = dic.id;
-            op.text = dic.text;
-            op.setAttribute('selected','selected');
-            document.getElementById(dic.popbackid).appendChild(op);
-        }
+        var op = document.createElement('option');
+        op.value = dic.id;
+        op.text = dic.text;
+        op.setAttribute('selected','selected');
+        document.getElementById(dic.popbackid).appendChild(op);
+
     }
     function popUp(url) {
         var popupPage = window.open(url, url, "status=1, height:500, width:600, toolbar=0, resizeable=0");

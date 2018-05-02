@@ -4,12 +4,11 @@
 
 
 
-{% block css %}
+{% block CSS %}
     <link rel="stylesheet" href="{% static 'css/form_input.css' %}">
 {% endblock %}
 
 {% block content %}
-        <h1>修改页面</h1>
     {% get_url form=form config=config%}
 {% endblock %}
 

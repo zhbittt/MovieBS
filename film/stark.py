@@ -39,3 +39,23 @@ class UserInfoConfig(v1.StarkConfig):
     edit_link = ["username"]
 
 v1.site.registry(models.UserInfo,UserInfoConfig)
+
+class MovieTypeConfig(v1.StarkConfig):
+
+    list_display = ["name"]
+    edit_link = ["name"]
+
+v1.site.registry(models.MovieType,MovieTypeConfig)
+
+class MovieDetailConfig(v1.StarkConfig):
+    def mtype(self,obj=None,is_header=None):
+        if is_header:
+            return "电影类型"
+        mtypes = []
+        for item in obj.mtype.all().values_list("name"):
+            mtypes.append(item[0])
+        return ",".join(mtypes)
+    list_display = ["name","period","company","score","comment_num","like_num","release",mtype]
+    edit_link = ["name"]
+
+v1.site.registry(models.MovieDetail,MovieDetailConfig)

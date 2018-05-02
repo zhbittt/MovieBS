@@ -3,12 +3,12 @@
 {% load my_tags %}
 
 
-{% block css %}
+{% block CSS %}
   <link rel="stylesheet" href="{% static 'css/list_view.css' %}">
 {% endblock %}
 
 {% block content %}
-    <h1>列表页面</h1>
+
 
     {% if changelist.config.get_show_comb_filter %}
        {% for item in changelist.gen_comb_filter %}
@@ -21,7 +21,7 @@
     {% endif %}
 
     {% if changelist.config.get_show_add_btn %}
-        <div class="col-md-offset-11  text-right"><a href="{{ changelist.add_url }}">
+        <div class="col-md-offset-11  text-right" style="padding-bottom: 10px;"><a href="{{ changelist.add_url }}">
             <button type="button" class="btn btn-primary">添加</button>
         </a></div>
     {% endif %}

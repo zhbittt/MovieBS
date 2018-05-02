@@ -440,51 +440,25 @@ class StarkConfig(object):
         '''
         添加视图函数
         '''
-        model_form_class=self.get_model_form_class()
-
-        if request.method =="GET":
+        model_form_class = self.get_model_form_class()
+        _popbackid = request.GET.get('_popbackid')
+        if request.method == "GET":
             form = model_form_class()
-            return render(request,'stark/add_view.html',{"form":form,"config":self})
+            return render(request, 'stark/add_view.html', {'form': form})
         else:
             form = model_form_class(request.POST)
-            _popbackid = request.GET.get("_popbackid")
-            result = {"status":False,"id": None, "text": None, "popbackid": _popbackid}
-
             if form.is_valid():
-                print(form.cleaned_data)
-                new_obj=form.save()
+                # 数据库中创建数据
+                new_obj = form.save()
                 if _popbackid:
-                    model_name = request.GET.get("model_name")
-                    related_name = request.GET.get("related_name")
-
-                    from django.db.models.fields.reverse_related import ManyToOneRel
-                    for related_object in new_obj._meta.related_objects:
-                        _model_nmae = related_object.field.model._meta.model_name
-                        _related_name = related_object.related_name
-                        _limit_choices_to = related_object.limit_choices_to
-                        if (type(related_object) == ManyToOneRel):
-                            _field_name = related_object.field_name
-                        else:
-                            _field_name = 'pk'
-                        print(model_name == _model_nmae,related_name == str(_related_name))
-                        if model_name == _model_nmae and related_name == str(_related_name):
-                            is_exists = self.model_class.objects.filter(**_limit_choices_to,pk=new_obj.pk).exists()
-                            print("is_exists",is_exists)
-                            if is_exists:
-                                result["status"]= True
-                                result["text"]= str(new_obj)
-                                result["id"]= getattr(new_obj,_field_name)
-                                print("1",result)
-                                return render(request,'stark/popup_response.html',
-                                              {"json_result":json.dumps(result,ensure_ascii=False)})
-                    else:
-                        print("2",result)
-                        return render(request, 'stark/popup_response.html',
-                                      {"json_result": json.dumps(result, ensure_ascii=False)})
-
-                oldurl = "%s?%s" % (self.get_list_url(), request.GET.get(self._query_params_key))
-                return redirect(oldurl)
-            return render(request,'stark/add_view.html',{"form":form,"config":self})
+                    # 是popup请求
+                    # render一个页面，写自执行函数
+                    result = {'id': new_obj.pk, 'text': str(new_obj), 'popbackid': _popbackid}
+                    return render(request, 'stark/popup_response.html',
+                                  {'json_result': json.dumps(result, ensure_ascii=False)})
+                else:
+                    return redirect(self.get_list_url())
+            return render(request, 'stark/add_view.html', {'form': form})
 
     def change_view(self,request,nid):
         '''
