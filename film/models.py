@@ -7,7 +7,7 @@ class UserInfo(models.Model):
     '''
     username = models.CharField(verbose_name="用户名",max_length=32)
     password = models.CharField(verbose_name="密码",max_length=64)
-    head_img = models.FileField(verbose_name='头像', upload_to='upload', default="/media/upload/default.jpg",null=True,blank=True)
+    head_img = models.FileField(verbose_name='头像', upload_to='upload', default="default.jpg",null=True,blank=True)
     phone = models.CharField(verbose_name="电话",max_length=11,blank=True,null=True)
 
     def __str__(self):
@@ -25,15 +25,16 @@ class MovieDetail(models.Model):
     name = models.CharField(verbose_name="电影名",max_length=32)
     period = models.CharField(verbose_name="电影时长",max_length=32)
     # img = models.CharField(verbose_name="电影图片",max_length=32)
-    img = models.FileField(verbose_name='电影图片', upload_to='upload', default="/media/upload/default_film.jpg" ,null=True,blank=True)
+    img = models.FileField(verbose_name='电影图片', upload_to='upload', default="default_film.jpg",null=True,blank=True)
 
     info = models.TextField(verbose_name="电影简介",max_length=255,null=True,blank=True)
     plot = models.TextField(verbose_name="电影剧情",max_length=1024,null=True,blank=True)
     company = models.CharField(verbose_name="发行公司",max_length=32,null=True,blank=True)
 
     score = models.CharField(verbose_name="电影评分", max_length=32,null=True,blank=True)
-    comment_num = models.IntegerField(verbose_name="评分人数",null=True,blank=True)
-    like_num = models.IntegerField(verbose_name="想看人数",null=True,blank=True)
+    comment_num = models.IntegerField(verbose_name="评分人数",null=True,blank=True,default=0)
+    like_num = models.IntegerField(verbose_name="想看人数",null=True,blank=True,default=0)
+    share_num = models.IntegerField(verbose_name="转发人数",null=True,blank=True,default=0)
     other_name = models.CharField(verbose_name="更多片名",max_length=32,null=True,blank=True)
     release = models.DateField(verbose_name="上映时间",null=True,blank=True)
 
@@ -48,10 +49,13 @@ class Worker(models.Model):
 
     act_chocies = ((1,"导演"),(2,"编剧"),(3,"演员"))
     Actor = models.IntegerField(verbose_name="职责",choices=act_chocies)
-    # role = models.CharField(verbose_name="扮演角色",max_length=32,blank=True,null=True)
-    role = models.FileField(verbose_name='扮演角色', upload_to='upload', default="/media/upload/default_film.jpg",null=True,blank=True)
-    act_img = models.CharField(verbose_name="演员图片",max_length=64,blank=True,null=True)
-    role_timg = models.CharField(verbose_name="角色图片",max_length=64,blank=True,null=True)
+    role = models.CharField(verbose_name="扮演角色",max_length=32,blank=True,null=True)
+    # act_img = models.CharField(verbose_name="演员图片",max_length=64,blank=True,null=True)
+    act_img = models.FileField(verbose_name='演员图片', upload_to='upload', default="default.jpg",null=True,blank=True)
+
+    # role_img = models.CharField(verbose_name="角色图片",max_length=64,blank=True,null=True)
+    role_img = models.FileField(verbose_name='角色图片', upload_to='upload', default="default.jpg",null=True,blank=True)
+
     movie = models.ForeignKey(verbose_name="关联电影",to='MovieDetail',on_delete=models.CASCADE)
 
     def __str__(self):
@@ -153,3 +157,4 @@ class OrderDetail(models.Model):
 
     def __str__(self):
         return self.moviefield.movie.name
+

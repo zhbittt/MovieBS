@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,HttpResponse
 from django.http import JsonResponse
 from PIL import Image,ImageDraw,ImageFont
 from io import BytesIO
+from .models import *
 import random
 import json
 
@@ -87,7 +88,10 @@ def reg(request):
     return render(request,"reg.html",{"form_obj":form_obj})
 
 def index(request):
-    return render(request,"index.html")
+    film_objs = MovieDetail.objects.all()
+    return render(request,"index.html",{"film_objs":film_objs})
 
-def MovieDetail(request):
-    return render(request,'detail.html')
+def Detail(request,nid):
+    detail = MovieDetail.objects.filter(pk=nid).first()
+    return render(request,'detail.html',{"detail":detail})
+

@@ -28,7 +28,7 @@ urlpatterns = [
     url(r'^reg/', views.reg),
     url(r'^get_validCode_img/', views.get_validCode_img),
     url(r'^index/', views.index),
-    url(r'^detail/', views.MovieDetail),
+    url(r'^film/(?P<nid>\d+)/detail/', views.Detail),
 
     # media 配置
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),

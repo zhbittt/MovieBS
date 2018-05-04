@@ -33,3 +33,21 @@ def get_url(*args,**kwargs):
                 temp['popup_url'] = popurl
         new_form.append(temp)
     return {"form":new_form}
+
+
+# @register.filter
+# def filter_multi(v1,v2):
+#     return  v1 * v2
+@register.simple_tag
+def get_direction(film):
+    worker = film.worker_set.filter(Actor=1).first()
+    if worker:
+        return worker.name
+    return "无"
+
+@register.simple_tag
+def get_movietype(film_obj):
+    type_list=[]
+    for item in film_obj.mtype.all().values_list("name"):
+        type_list.append(item[0])
+    return ','.join(type_list)

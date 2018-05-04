@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load my_tags  %}
 
 {% block title %}
     <title>主页</title>
@@ -230,308 +231,51 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+
     <!--main-->
     <section class="content-wrap martop">
         <div class="container">
             <div class="row">
                 <!--left电影列表-->
                 <main class="col-md-8 index-main">
-
                     <ul class="index-list">
+                        {% for movie in film_objs %}
                         <li>
                             <div class="index-img">
                                 <a href="">
-                                    <img src="/static/img/M1.jpg" class="img">
-                                    <span class="film-time">03:55</span>
+                                    <img src="/media/upload/{{ movie.img }}" class="img">
+                                    <span class="film-time">{{ movie.period }} 分钟</span>
                                 </a>
                             </div>
                             <div class="index-text">
-                                <h1><a href="" title="风格化燃情行摄短片《行进中的达州》">风格化燃情行摄短片《行进中的达州》</a></h1>
+                                <h1><a href="/film/{{ movie.pk }}/detail/" title="{{ movie.name }}">{{ movie.name }}</a></h1>
                                 <div class="index-con">
-                                    <span>影片作者：</span>
-                                    <a href="" class="user" title="赵蒙">赵蒙 <img src="/static/img/plus-v-p-12.png"></a>
+                                    <span>影片导演：</span>
+                                    <a href="" class="user" title="{% get_direction movie %}">{% get_direction movie %}<img src="/static/img/plus-v-p-12.png"></a>
                                     <div class="rating">
                                         <div class="rating-holder">
                                             <span class="rating-span" style="width:66px;"></span>
                                         </div>
                                     </div>
-                                    <span class="rating-score">7.5</span>
+                                    <span class="rating-score">{{ movie.score }}</span>
                                 </div>
                                 <div class="index-intro">
-                                    <a href="">只想用尽全力展现它的美</a>
+                                    <a href="">{{ movie.info }}</a>
                                 </div>
                                 <div class="index-like">
-                                    <span>旅行</span>
-                                    <span>  2小时前</span>
+                                    <span>{% get_movietype movie  %}</span>
                                     <div class="post-ope">
-                                        <span class="post-comment">11</span>
-                                        <span class="post-like">83</span>
-                                        <a href="" class="post-share-btn">65</a>
+                                        <span class="post-comment">{{ movie.comment_num }}</span>
+                                        <span class="post-like">{{ movie.like_num }}</span>
+                                        <a href="" class="post-share-btn">{{ movie.share_num }}</a>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            <div class="index-img">
-                                <a href="">
-                                    <img src="image/M2.jpg" class="img">
-                                    <span class="film-time">09:04</span>
-                                </a>
-                            </div>
-                            <div class="index-text">
-                                <h1><a href="" title="水晶熊最佳短片提名《心中的低谷》">水晶熊最佳短片提名《心中的低谷》</a></h1>
-                                <div class="index-con">
-                                    <span>影片作者：</span>
-                                    <a href="" class="user" title="李寒竹">李寒竹 <img src="image/plus-v-p-12.png"></a>
-                                    <div class="rating">
-                                        <div class="rating-holder">
-                                            <span class="rating-span" style="width:80px;"></span>
-                                        </div>
-                                    </div>
-                                    <span class="rating-score">9.1</span>
-                                </div>
-                                <div class="index-intro">
-                                    <a href="">每个人心中都有不可弥补的缺憾</a>
-                                </div>
-                                <div class="index-like">
-                                    <span>剧情</span>
-                                    <span>  16小时前</span>
-                                    <div class="post-ope">
-                                        <span class="post-comment">12</span>
-                                        <span class="post-like">200</span>
-                                        <a href="" class="post-share-btn">87</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="index-img">
-                                <a href="">
-                                    <img src="image/M3.jpg" class="img">
-                                    <span class="film-time">01:55</span>
-                                </a>
-                            </div>
-                            <div class="index-text">
-                                <h1><a href="" title="超牛大神炫绝技《秋天在麦田里滑个草》">超牛大神炫绝技《秋天在麦田里滑个草》</a></h1>
-                                <div class="index-con">
-                                    <span>影片作者：</span>
-                                    <a href="" class="user" title="王雪">王雪 <img src="image/plus-v-p-12.png"></a>
-                                    <div class="rating">
-                                        <div class="rating-holder">
-                                            <span class="rating-span" style="width:78px;"></span>
-                                        </div>
-                                    </div>
-                                    <span class="rating-score">7.8</span>
-                                </div>
-                                <div class="index-intro">
-                                    <a href="">带着风的速度，感受麦子的芬芳</a>
-                                </div>
-                                <div class="index-like">
-                                    <span>运动</span>
-                                    <span>  16小时前</span>
-                                    <div class="post-ope">
-                                        <span class="post-comment">20</span>
-                                        <span class="post-like">141</span>
-                                        <a href="" class="post-share-btn">139</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="index-img">
-                                <a href="">
-                                    <img src="image/M4.jpg" class="img">
-                                    <span class="film-time">04:30</span>
-                                </a>
-                            </div>
-                            <div class="index-text">
-                                <h1><a href="" title="冰与火之歌前传动画《七大国的历史》">冰与火之歌前传动画《七大国的历史》</a></h1>
-                                <div class="index-con">
-                                    <span>影片作者：</span>
-                                    <a href="" class="user" title="安格">安格 <img src="image/plus-v-p-12.png"></a>
-                                    <div class="rating">
-                                        <div class="rating-holder">
-                                            <span class="rating-span" style="width:50px;"></span>
-                                        </div>
-                                    </div>
-                                    <span class="rating-score">5.2</span>
-                                </div>
-                                <div class="index-intro">
-                                    <a href="">坦格利安家族的过去和七大国的诞生</a>
-                                </div>
-                                <div class="index-like">
-                                    <span>动漫</span>
-                                    <span>  20小时前</span>
-                                    <div class="post-ope">
-                                        <span class="post-comment">4</span>
-                                        <span class="post-like">87</span>
-                                        <a href="" class="post-share-btn">61</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="index-img">
-                                <a href="">
-                                    <img src="image/M5.jpg" class="img">
-                                    <span class="film-time">07:38</span>
-                                </a>
-                            </div>
-                            <div class="index-text">
-                                <h1><a href="" title="真人真事感人短片《逐梦萤火虫》">真人真事感人短片《逐梦萤火虫》</a></h1>
-                                <div class="index-con">
-                                    <span>影片作者：</span>
-                                    <a href="" class="user" title="邬墨皓">邬墨皓 <img src="image/plus-v-p-12.png"></a>
-                                    <div class="rating">
-                                        <div class="rating-holder">
-                                            <span class="rating-span" style="width:87px;"></span>
-                                        </div>
-                                    </div>
-                                    <span class="rating-score">8.7</span>
-                                </div>
-                                <div class="index-intro">
-                                    <a href="">只想为你点亮那保驾护航的小灯</a>
-                                </div>
-                                <div class="index-like">
-                                    <span>广告</span>
-                                    <span>  一天前</span>
-                                    <div class="post-ope">
-                                        <span class="post-comment">14</span>
-                                        <span class="post-like">144</span>
-                                        <a href="" class="post-share-btn">139</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="index-img">
-                                <a href="">
-                                    <img src="image/M6.jpg" class="img">
-                                    <span class="film-time">02:26</span>
-                                </a>
-                            </div>
-                            <div class="index-text">
-                                <h1><a href="" title="探秘挪威原生态群岛《罗弗敦》">探秘挪威原生态群岛《罗弗敦》</a></h1>
-                                <div class="index-con">
-                                    <span>影片作者：</span>
-                                    <a href="" class="user" title="姚惠琳">姚惠琳<img src="image/plus-v-p-12.png"></a>
-                                    <div class="rating">
-                                        <div class="rating-holder">
-                                            <span class="rating-span" style="width:100px;"></span>
-                                        </div>
-                                    </div>
-                                    <span class="rating-score">10</span>
-                                </div>
-                                <div class="index-intro">
-                                    <a href="">“这个地方美得令人窒息。”——《孤独星球》</a>
-                                </div>
-                                <div class="index-like">
-                                    <span>旅行</span>
-                                    <span>  5分钟前</span>
-                                    <div class="post-ope">
-                                        <span class="post-comment">249</span>
-                                        <span class="post-like">883</span>
-                                        <a href="" class="post-share-btn">633</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                        {% endfor %}
+
                     </ul>
-                    <!--
-{#                    <article class="post">#}
-{#                        <div class="post-head"><h1 class="post-title">#}
-{#                            <a href="#">三生三世十里桃花电影，预计 7/8 月份发布</a></h1>#}
-{#                            <div class="post-meta"><span class="author">作者：<a href="#"#}
-{#                            >王赛</a></span>#}
-{#                                <time class="post-date" datetime="2017年02月20日" title="2017年02月20日">2017年02月20日</time>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <div class="featured-media"><a#}
-{#                                href="#"><img#}
-{#                                src="/static/img/listpic/list1.jpg"#}
-{#                                alt="Laravel 5.5 将是下一个 LTS 版本，预计 7/8 月份发布"></a></div>#}
-{#                        <div class="post-content"><p></p>#}
-{#                            <p>Laravel 的上一个 LTS（长期支持）版本是 Laravel 5.1，发布于 2015 年 6 月，按照对 LTS 版本的约定，两年的 bug#}
-{#                                修复支持到今年中旬就结束了，所以今年中旬必然要出一个 LTS 后继版本，就是 Laravel 5.5。</p>#}
-{#                            <p></p></div>#}
-{#                        <footer class="post-footer clearfix"></footer>#}
-{#                    </article>#}
-{##}
-{#                    <article class="post">#}
-{#                        <div class="post-head"><h1 class="post-title"><a#}
-{#                                href="#">战狼2 电影正式发布</a>#}
-{#                        </h1>#}
-{#                            <div class="post-meta"><span class="author">作者：<a href="#"#}
-{#                            >王赛</a></span> •#}
-{#                                <time class="post-date" datetime="2017年01月24日" title="2017年01月24日">2017年01月24日</time>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <div class="featured-media"><a#}
-{#                                href="#"><img#}
-{#                                src="/static/img/listpic/list2.jpg"#}
-{#                                alt="Laravel 5.4 版本正式发布"></a></div>#}
-{#                        <div class="post-content"><p></p>#}
-{#                            <p>Laravel 5.4 版本正式发布了！这一版本带来了很多新特性以及对原有功能的提升。</p>#}
-{#                            <p></p></div>#}
-{#                        <footer class="post-footer clearfix"></footer>#}
-{#                    </article>#}
-{##}
-{#                    <article class="post">#}
-{#                        <div class="post-head"><h1 class="post-title"><a#}
-{#                                href="#">爸爸去哪儿5，预计 7/8 月份发布</a></h1>#}
-{#                            <div class="post-meta"><span class="author">作者：<a href="#"#}
-{#                            >王赛</a></span> •#}
-{#                                <time class="post-date" datetime="2017年02月20日" title="2017年02月20日">2017年02月20日</time>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <div class="featured-media"><a#}
-{#                                href="#"><img#}
-{#                                src="/static/img/listpic/list3.jpg"#}
-{#                                alt="Laravel 5.5 将是下一个 LTS 版本，预计 7/8 月份发布"></a></div>#}
-{#                        <div class="post-content"><p></p>#}
-{#                            <p>Laravel 的上一个 LTS（长期支持）版本是 Laravel 5.1，发布于 2015 年 6 月，按照对 LTS 版本的约定，两年的 bug#}
-{#                                修复支持到今年中旬就结束了，所以今年中旬必然要出一个 LTS 后继版本，就是 Laravel 5.5。</p>#}
-{#                            <p></p></div>#}
-{#                        <footer class="post-footer clearfix"></footer>#}
-{#                    </article>#}
-{##}
-{#                    <article class="post">#}
-{#                        <div class="post-head"><h1 class="post-title"><a#}
-{#                                href="#">那年花开月正圆，预计 7/8 月份发布</a></h1>#}
-{#                            <div class="post-meta"><span class="author">作者：<a href="#"#}
-{#                            >王赛</a></span> •#}
-{#                                <time class="post-date" datetime="2017年02月20日" title="2017年02月20日">2017年02月20日</time>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <div class="featured-media"><a#}
-{#                                href="#"><img#}
-{#                                src="/static/img/listpic/list4.jpg"#}
-{#                                alt="Laravel 5.5 将是下一个 LTS 版本，预计 7/8 月份发布"></a></div>#}
-{#                        <div class="post-content"><p></p>#}
-{#                            <p>Laravel 的上一个 LTS（长期支持）版本是 Laravel 5.1，发布于 2015 年 6 月，按照对 LTS 版本的约定，两年的 bug#}
-{#                                修复支持到今年中旬就结束了，所以今年中旬必然要出一个 LTS 后继版本，就是 Laravel 5.5。</p>#}
-{#                            <p></p></div>#}
-{#                        <footer class="post-footer clearfix"></footer>#}
-{#                    </article>#}
-{##}
-{#                    <article class="post">#}
-{#                        <div class="post-head"><h1 class="post-title"><a#}
-{#                                href="#">微微一笑很倾城</a></h1>#}
-{#                            <div class="post-meta"><span class="author">作者：<a href="#"#}
-{#                            >王赛</a></span> •#}
-{#                                <time class="post-date" datetime="2017年02月20日" title="2017年02月20日">2017年02月20日</time>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <div class="featured-media"><a#}
-{#                                href="#"><img#}
-{#                                src="/static/img/listpic/list5.jpg"#}
-{#                                alt="Laravel 5.5 将是下一个 LTS 版本，预计 7/8 月份发布"></a></div>#}
-{#                        <div class="post-content"><p></p>#}
-{#                            <p>Laravel 的上一个 LTS（长期支持）版本是 Laravel 5.1，发布于 2015 年 6 月，按照对 LTS 版本的约定，两年的 bug#}
-{#                                修复支持到今年中旬就结束了，所以今年中旬必然要出一个 LTS 后继版本，就是 Laravel 5.5。</p>#}
-{#                            <p></p></div>#}
-{#                        <footer class="post-footer clearfix"></footer>#}
-{#                    </article>#} -->
+
 
                     <nav class="pagination" role="navigation">
                         <span class="page-number">第 1 页 / 共 5 页</span>
